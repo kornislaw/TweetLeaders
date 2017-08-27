@@ -1,15 +1,22 @@
-## Source
-/Users/dominik/Documents/dev/tutorial-python-neo4j/
+The goal of the project is to analyze a predefined list of Twitter users in order to highlight thought leaders (the ones who are followed by the others most).
 
-https://www.youtube.com/watch?v=r0s7qr56xG4
-http://nicolewhite.github.io/neo4j-jupyter/main.html
-https://www.youtube.com/watch?v=jX9PBbPUoRY
+## Roadmap
+
+* v0.1 - initial commit, loading example relations (user+followers), sample visualisation
+* v0.2 - user+followers+following, discovering relations between followers and following; visualiztaion
+* v0.3 - collecting followers for a predefined list of though leaders; storing data in a local sqlite db
+* v0.4 - new thought leaders discovery
+* v0.5 - web interface for managing predefined lists
 
 
-## Related links
+## Backlog
 
-http://visjs.org/
-https://github.com/nicolewhite/neo4j-jupyter
+* other metrics, i.e. retweets, likes, @mentions
+* user accounts
 
-http://marcobonzanini.com/2015/03/02/mining-twitter-data-with-python-part-1/
 
+## Change log
+
+* v0.1 done,
+  * example - followers of my petty account:
+![followers of @kornislsaw](./output/tweetleaders_visjs.png)
