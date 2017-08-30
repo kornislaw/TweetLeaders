@@ -1,0 +1,59 @@
+
+<!doctype html>
+<html>
+<head>
+  <title>Network | Circular images</title>
+
+  <style type="text/css">
+    body {
+      font: 10pt arial;
+    }
+    #mynetwork {
+      width: 800px;
+      height: 800px;
+      border: 1px solid lightgray;
+      background-color:#666;
+    }
+  </style>
+
+  <script type="text/javascript" src="http://visjs.org/dist/vis.js"></script>
+  <script type="text/javascript" src="./kornislaw2.js"></script>
+  <link href="http://visjs.org/dist/vis-network.min.css" rel="stylesheet" type="text/css" />
+
+  <script type="text/javascript">
+
+    function draw() {
+      var network = null;
+
+      // create a network
+      var container = document.getElementById('mynetwork');
+      // var data = data;
+
+      var options = {
+        nodes: {
+          borderWidth:4,
+          size:30,
+	      color: {
+            border: '#222222',
+            background: '#ff0'
+          },
+          font:{color:'#eee'}
+        },
+        edges: {
+          color: 'lightgray',
+          length: 250,
+          arrows: {to: {enabled: true}},
+          smooth: {type: 'continuous'}
+        }
+      };
+      network = new vis.Network(container, data, options);
+    }
+  </script>
+
+</head>
+
+<body onload="draw()">
+
+<div id="mynetwork"></div>
+</body>
+</html>
