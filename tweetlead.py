@@ -1,4 +1,5 @@
 import os
+import json
 import tweepy
 from pprint import pprint as pp
 from tweepy import OAuthHandler
@@ -42,8 +43,9 @@ def get_followers(u_name):
     nodes.append({'id': u.id, 'shape': 'circularImage', 'image': u.profile_image_url, 'label': u.screen_name, 'size': 70 })
     edges = [{'from': flr.id, 'to': u.id} for flr in flrs]
 
-    return {'nodes': nodes, 'edges': edges}
+    return json.dumps({'nodes': nodes, 'edges': edges})
+    # return {'nodes': nodes, 'edges': edges}
 
-pp(get_followers('kornislaw'))
+print(get_followers('kornislaw'))
 # def print_followed():
     # API.friends_ids(id/screen_name/user_id[, cursor]

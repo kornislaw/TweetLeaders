@@ -16,44 +16,44 @@
     }
   </style>
 
-  <script type="text/javascript" src="http://visjs.org/dist/vis.js"></script>
-  <script type="text/javascript" src="./kornislaw2.js"></script>
+  <script src="http://visjs.org/dist/vis.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="http://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
   <link href="http://visjs.org/dist/vis-network.min.css" rel="stylesheet" type="text/css" />
 
   <script type="text/javascript">
+  $(document).ready(function () {
+     $.getJSON('http://localhost:8000/output/kornislaw2.json', function(data) {
+       var network = null;
 
-    function draw() {
-      var network = null;
+       // create a network
+       var container = document.getElementById('mynetwork');
+       var options = {
+         nodes: {
+           borderWidth:4,
+           size:30,
+ 	      color: {
+             border: '#222222',
+             background: '#ff0'
+           },
+           font:{color:'#eee'}
+         },
+         edges: {
+           color: 'lightgray',
+           length: 200,
+           arrows: {to: {enabled: true}},
+           smooth: {type: 'continuous'}
+         }
+       };
+       network = new vis.Network(container, data, options);
+      });
+  });
 
-      // create a network
-      var container = document.getElementById('mynetwork');
-      // var data = data;
-
-      var options = {
-        nodes: {
-          borderWidth:4,
-          size:30,
-	      color: {
-            border: '#222222',
-            background: '#ff0'
-          },
-          font:{color:'#eee'}
-        },
-        edges: {
-          color: 'lightgray',
-          length: 250,
-          arrows: {to: {enabled: true}},
-          smooth: {type: 'continuous'}
-        }
-      };
-      network = new vis.Network(container, data, options);
-    }
   </script>
 
 </head>
 
-<body onload="draw()">
-
-<div id="mynetwork"></div>
+<body>
+  <div id="mynetwork"></div>
 </body>
 </html>
